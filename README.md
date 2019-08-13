@@ -15,5 +15,16 @@ MySQL<br>
 ## Installing:
 
 1. Clone this repository in your machine.
-2. Install project dependencies > "composer install".
-3. Go to http://localhost/job-recruitment-website/public/".
+2. Create a .env file in the project root folder with variables listed in the [Environment variables](#environment-variables) section.
+3. Navigate to job-recruitment-website folder.
+4. Install project dependencies > "composer install".
+5. Go to http://localhost/job-recruitment-website/public/".
+
+## Environment variables
+
+```
+HOST = { "host name" }
+DATABASE = { "database name" }
+USERNAME = { "database user" }
+PASSWORD = { "database password" }
+```
