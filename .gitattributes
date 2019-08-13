@@ -15,3 +15,6 @@
 *.PDF	 diff=astextplain
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
+
+# Reclassifies `.js` files as PHP for project language detection
+*.js linguist-language=PHP
