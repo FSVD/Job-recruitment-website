@@ -23,8 +23,8 @@ MySQL<br>
 ## Environment variables
 
 ```
-HOST = { "host name" }
-DATABASE = { "database name" }
-USERNAME = { "database user" }
-PASSWORD = { "database password" }
+HOST = { your host name }
+DATABASE = { your database name }
+USERNAME = { your database user }
+PASSWORD = { your database password }
 ```
