@@ -32,3 +32,15 @@ DB_PORT = "your database port"
 DB_CHARSET = "your database charset"
 DB_COLLATION = "your database collation"
 ```
+
+## Users credentials
+
+### Default admin.
+
+<strong>Email:</strong> defaultadmin@gmail.com<br>
+<strong>Password:</strong> password
+
+### Default user.
+
+<strong>Email:</strong> defaultuser@gmail.com<br>
+<strong>Password:</strong> password
