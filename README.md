@@ -18,7 +18,8 @@ MySQL<br>
 2. Create a .env file in the project root folder with variables listed in the [Environment variables](#environment-variables) section.
 3. Navigate to job-recruitment-website folder.
 4. Install project dependencies > "composer install".
-5. Go to http://localhost/job-recruitment-website/public/".
+5. Create a new schema in your MySQL DDBB and populate it executing "job-recruitment-database.sql".
+6. Go to http://localhost/job-recruitment-website/public/".
 
 ## Environment variables
 
