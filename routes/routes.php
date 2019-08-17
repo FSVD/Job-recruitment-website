@@ -16,7 +16,7 @@ $app->get('/', function($request, $response){
     
 
 //home page
-$app->get('/', 'HomeController:index')->setName('home');
+$app->get('/', 'PostsController:index')->setName('home');
 //about page
 $app->get('/about', 'HomeController:about')->setName('about');
 
@@ -63,8 +63,8 @@ $app->group('', function () use ($app) {
 
 
     //post routes
-$app->get('/posts/index[/{user_id}]', 'PostsController:index')->setName('posts.index'); //Optional user_id parameter
-$app->map(['POST', 'GET'], '/posts/add/', 'PostsController:add')->setName('posts.add');
+    $app->get('/posts/index[/{user_id}]', 'PostsController:index')->setName('posts.index'); //Optional user_id parameter
+    $app->map(['POST', 'GET'], '/posts/add/', 'PostsController:add')->setName('posts.add');
     $app->map(['POST', 'GET'], '/posts/edit/{id}', 'PostsController:edit')->setName('posts.edit');
     $app->get('/posts/view/{id}', 'PostsController:view')->setName('posts.view');
     $app->get('/posts/delete/{id}', 'PostsController:delete')->setName('posts.delete');
