@@ -15,6 +15,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="panel-body">
+                    <h2>List of users from {{ country.name }}</h2>
+                    <ul>
+                        {% for user in country.users %}
+                        <li>
+                            <a href="{{ path_for('users.view', {'id': user.id } ) }}">{{user.first_name}} {{user.last_name}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             <!-- <div class="panel-footer">
                 <span class="label label-default">Welcome</span> <span class="label label-default">Updates</span> <span class="label label-default">July</span>
             </div> -->
