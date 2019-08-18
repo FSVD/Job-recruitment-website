@@ -50,4 +50,10 @@ class User extends Model
     {
         return $this->belongsTo('App\Models\Country');
     }
+
+    //every user belongs to a province
+    public function province()
+    {
+        return $this->belongsTo('App\Models\Province');
+    }
 }
