@@ -27,3 +27,6 @@ $container['RolesController'] = function ($container) {
 $container['CountriesController'] = function ($container) {
     return new \App\Controllers\CountriesController($container);
 };
+$container['ProvincesController'] = function ($container) {
+    return new \App\Controllers\ProvincesController($container);
+};
