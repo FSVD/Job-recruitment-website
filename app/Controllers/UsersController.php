@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\Controller;
 use App\Models\User;
 use App\Models\Country;
+use App\Models\Province;
 use Respect\Validation\Validator as v;
 
 class UsersController extends Controller
@@ -46,6 +47,7 @@ class UsersController extends Controller
     {
         $user = User::find($args['id']);
         $countries = Country::all();
+        $provinces = Province::all();
         //only admin and the person that created the post can edit or delete this profile.
         if (($this->auth->user()->id != $args['id']) and ($this->auth->user()->role_id > 2)) {
             $this->flash->addMessage('error', 'You are not allowed to perform this action!');
@@ -86,7 +88,7 @@ class UsersController extends Controller
                                 'phone' => $request->getParam('phone'),
                                 ]);
         }
-        return $this->view->render($response, 'users/edit.twig', ['user'=>$user, 'countries'=>$countries]);
+        return $this->view->render($response, 'users/edit.twig', ['user'=>$user, 'countries'=>$countries, 'provinces'=>$provinces]);
     }
 
     /**
