@@ -29,4 +29,10 @@ class Country extends Model
         'code',
         'name',
     ];
+
+    //every country has many users
+    public function users()
+    {
+        return $this->hasMany('App\Models\User');
+    }
 }
