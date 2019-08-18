@@ -3,18 +3,13 @@
 	{% block content %}
 <div class="row">
 	<div class="col-md-10">
-		<div id="postlist">
+		<div id="provincelist">
 			<div class="panel">
                 <div class="panel-heading">
                     <div class="text-center">
                         <div class="row">
                             <div class="col-sm-9">
                                 <h3 class="pull-left">{{ country.name }} - {{ country.code }}</h3>
-                            </div>
-                            <div class="col-sm-3">
-                                <h4 class="pull-right">
-                                <small> {{ post.created_at }} </small>
-                                </h4>
                             </div>
                         </div>
                     </div>
@@ -23,7 +18,7 @@
             <div class="panel-body">
                 <div class="login-form" >
           <form action="{{ path_for('countries.edit', {'id': country.id}) }}" method="post" autocomplete="off"> 
-          <div class="form-group {{ errors.name ? 'has-error' : '' }}">
+            <div class="form-group {{ errors.name ? 'has-error' : '' }}">
               <input type="text" class="form-control login-field"  name="name" placeholder="Enter country name" value="{{country.name}}">
               <label class="login-field-icon fui-user" for="name"></label>
               {% if errors.name %}
