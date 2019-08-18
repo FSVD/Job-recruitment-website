@@ -74,4 +74,11 @@ $app->group('', function () use ($app) {
     $app->map(['POST', 'GET'], '/countries/edit/{id}', 'CountriesController:edit')->setName('countries.edit');
     $app->get('/countries/view/{id}', 'CountriesController:view')->setName('countries.view');
     $app->get('/countries/delete/{id}', 'CountriesController:delete')->setName('countries.delete');
+
+    //provinces routes
+    $app->get('/provinces/index', 'ProvincesController:index')->setName('provinces.index'); //Optional user_id parameter
+    $app->map(['POST', 'GET'], '/provinces/add/', 'ProvincesController:add')->setName('provinces.add');
+    $app->map(['POST', 'GET'], '/provinces/edit/{id}', 'ProvincesController:edit')->setName('provinces.edit');
+    $app->get('/provinces/view/{id}', 'ProvincesController:view')->setName('provinces.view');
+    $app->get('/provinces/delete/{id}', 'ProvincesController:delete')->setName('provinces.delete');
 })->add(new AuthMiddleware($container));
