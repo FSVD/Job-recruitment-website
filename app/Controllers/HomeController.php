@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index($request, $response)
     {
         // Sending variable to view trough associative array.
-        // return $this->view->render($response, 'home.twig', array( 'fontAwesomeKitCode' => env('FONT_AWESOME_KIT_CODE')));
+        // return $this->view->render($response, 'home.twig', ['fontAwesomeKitCode' => env('FONT_AWESOME_KIT_CODE')]);
         return $this->view->render($response, 'home.twig');
     }
     
