@@ -21,6 +21,9 @@
                             <a href="{{ path_for('users.view', { 'id': auth.user.id }) }}">My Profile</a>
                         </li>
                         <li>
+                            <a href="{{ path_for('skills.index', { 'id': auth.user.id }) }}">My Skills</a>
+                        </li>
+                        <li>
                             <a href="{{ path_for('posts.index', {'user_id': auth.user.id }) }}">My Posts</a>
                         </li>
                         <li>
