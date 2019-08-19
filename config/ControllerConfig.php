@@ -30,3 +30,6 @@ $container['CountriesController'] = function ($container) {
 $container['ProvincesController'] = function ($container) {
     return new \App\Controllers\ProvincesController($container);
 };
+$container['SkillsController'] = function ($container) {
+    return new \App\Controllers\SkillsController($container);
+};
