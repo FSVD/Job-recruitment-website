@@ -438,6 +438,8 @@ DROP TABLE IF EXISTS `job-recruitment`.`skills`;
 CREATE TABLE `job-recruitment`.`skills` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
+    `url` VARCHAR(255) NULL,
+    `description` TEXT,
     `id_user` INT(11) NOT NULL,
     `created_at` DATETIME NOT NULL,
     `updated_at` DATETIME NOT NULL,
