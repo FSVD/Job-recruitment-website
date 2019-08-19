@@ -1,35 +1,30 @@
-
 {% if flash.getMessage('info') %}
-<div class="row text-center  text-center alert alert-info" role="alert" >
-  <i class="fas fa-info-circle"></i>
-  {{ flash.getMessage('info') | first }}
-</div>
+    <div class="row text-center  text-center alert alert-info" role="alert">
+        <i class="fas fa-info-circle"></i>
+        {{ flash.getMessage('info') | first }}
+    </div>
 {% endif %}
-
 {% if flash.getMessage('warning') %}
-<div class="row text-center  alert alert-warning" role="alert">
-  <i class="fas fa-exclamation-triangle"></i>
-  {{ flash.getMessage('warning') | first }}
-</div>
+    <div class="row text-center  alert alert-warning" role="alert">
+        <i class="fas fa-exclamation-triangle"></i>
+        {{ flash.getMessage('warning') | first }}
+    </div>
 {% endif %}
-
 {% if flash.getMessage('success') %}
-<div class="row text-center  alert alert-primary" role="alert">
-  <i class="fas fa-thumbs-up"></i> 
-  {{ flash.getMessage('success') | first }}
-</div>
+    <div class="row text-center  alert alert-primary" role="alert">
+        <i class="fas fa-thumbs-up"></i>
+        {{ flash.getMessage('success') | first }}
+    </div>
 {% endif %}
-
 {% if flash.getMessage('error') %}
-<div class="row text-center  alert alert-danger" role="alert">
-  <i class="fas fa-thumbs-down"></i>
-  {{ flash.getMessage('error') | first }}
-</div>
+    <div class="row text-center  alert alert-danger" role="alert">
+        <i class="fas fa-thumbs-down"></i>
+        {{ flash.getMessage('error') | first }}
+    </div>
 {% endif %}
-
 {% if flash.getMessage('default') %}
-<div class="row text-center  alert alert-default" role="alert">
-  <i class="fas fa-exclamation"></i>
-  {{ flash.getMessage('default') | first }}
-</div>
+    <div class="row text-center  alert alert-default" role="alert">
+        <i class="fas fa-exclamation"></i>
+        {{ flash.getMessage('default') | first }}
+    </div>
 {% endif %}

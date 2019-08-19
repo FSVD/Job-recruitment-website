@@ -1,54 +1,50 @@
 {% extends 'templates/app.twig' %}
-
-	{% block content %}
-<div class="row">
-	<div class="col-md-10">
-		<div id="provincelist">
-			<div class="panel">
-                <div class="panel-heading">
-                    <div class="text-center">
-                        <div class="row">
-                            <div class="col-sm-9">
-                                <h3 class="pull-left">{{ province.name }} {{ province.code }}</h3>
+{% block content %}
+    <div class="row">
+        <div class="col-md-10">
+            <div id="provincelist">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="text-center">
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <h3 class="pull-left">{{ province.name }}
+                                        {{ province.code }}</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="panel-body">
+                        <h2>List of users from
+                            {{ province.name }}</h2>
+                        <ul>
+                            {% for user in province.users %}
+                                <li>
+                                    <a href="{{ path_for('users.view', {'id': user.id } ) }}">{{user.first_name}}
+                                        {{user.last_name}}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- <div class="panel-footer">
+                    <span class="label label-default">Welcome</span> <span class="label label-default">Updates</span> <span class="label label-default">July</span>
+                    </div> -->
                 </div>
-                
-                <div class="panel-body">
-                    <h2>List of users from {{ province.name }}</h2>
-                    <ul>
-                        {% for user in province.users %}
-                        <li>
-                            <a href="{{ path_for('users.view', {'id': user.id } ) }}">{{user.first_name}} {{user.last_name}}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            
-            <!-- <div class="panel-footer">
-                <span class="label label-default">Welcome</span> <span class="label label-default">Updates</span> <span class="label label-default">July</span>
-            </div> -->
+            </div>
         </div>
-        
-       </div>
-    </div>
-    <!-- Only the owner of this province and the admin can edit and delete it -->
-     {% if (province.user_id == auth.user.id) or (auth.user.role_id <= 3) %}
-		<div class="text-center">
-            <p><a href="{{ path_for('provinces.edit', {'id': province.id } ) }}" class="btn btn-primary">Edit province</a>
+        <!-- Only the owner of this province and the admin can edit and delete it -->
+        {% if (province.user_id == auth.user.id) or (auth.user.role_id <= 3) %}
+            <div class="text-center">
+                <p>
+                    <a href="{{ path_for('provinces.edit', {'id': province.id } ) }}" class="btn btn-primary">Edit province</a>
                 </p>
-                <p> <a onclick="return confirm('Are you sure you wish to delete this province?');"  href="{{ path_for('provinces.delete', {'id': province.id } ) }}" class="btn btn-warning">Delete province</a>
-        
+                <p>
+                    <a onclick="return confirm('Are you sure you wish to delete this province?');" href="{{ path_for('provinces.delete', {'id': province.id } ) }}" class="btn btn-warning">Delete province</a>
                 </p>
-          </div>
-             
-    {% endif %}
+            </div>
+        {% endif %}
     </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-1">
-        </div>
-    </div>
-{% endblock %}
+    <div class="col-md-1"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-1"></div>
+</div>{% endblock %}

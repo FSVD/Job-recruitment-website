@@ -1,53 +1,40 @@
 {% extends 'templates/app.twig' %}
-
-	{% block content %}
-<div class="row">
-	<div class="col-md-10">
-		<div id="provincelist">
-			<div class="panel">
-                <div class="panel-heading">
-                    <div class="text-center">
-                        <div class="row">
-                            <div class="col-sm-9">
-                                <h3 class="pull-left">Provinces</h3>
+{% block content %}
+    <div class="row">
+        <div class="col-md-10">
+            <div id="provincelist">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="text-center">
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <h3 class="pull-left">Provinces</h3>
+                                </div>
                             </div>
-                            
                         </div>
                     </div>
+                    <div class="panel-body">
+                        <div class="container">
+                            <ol>
+                                {% for province in provinces %}
+                                    <li>
+                                        <a href="{{ path_for('provinces.view', {'id': province.id }) }}">{{ province.name }}
+                                            -
+                                            {{ province.code }}</a>
+                                    </li>
+                                    {% endfor%}
+                                </ol>
+                                <hr>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="panel-footer"></div>
                 </div>
-                
-            <div class="panel-body">
-                
-                <div class="container">
-
-                <ol>
-                  {% for province in provinces %}
-                    <li>
-                    <a href="{{ path_for('provinces.view', {'id': province.id }) }}">{{ province.name }} - {{ province.code }}</a>
-                    </li>
-                  {% endfor%}
-                </ol>
-
-<hr>
-
-
-</div>
-<hr>
-</div>
-
-
             </div>
-            
-            <div class="panel-footer">
+            <div class="text-center">
+                <a href="{{ path_for('provinces.add') }}" class="btn btn-primary">New province</a>
             </div>
         </div>
-        
-       </div>
-       <div class="text-center">
-            <a href="{{ path_for('provinces.add') }}" class="btn btn-primary">New province</a>
-        </div> 
     </div>
-</div>
-
-</div>
-	{% endblock %}
+</div>{% endblock %}

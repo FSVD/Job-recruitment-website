@@ -1,10 +1,7 @@
 {% extends 'templates/app.twig' %}
-
 {% block content %}
-
 <div
     class="col-md-12 col-lg-12 ">
-
     <!-- Display Errors and Session Messages iF Any-->
     {% for error in errors %}
         {% for error_message in error %}
@@ -16,20 +13,15 @@
             </div>
         {% endfor %}
     {% endfor %}
-
-
     <!-- Add Icon -->
     <div class="col-md-5 col-lg-6 pull-left ">
         <img src="{{ base_url()}}/img/icons/png/Infinity-Loop.png" alt="Welcome to RawPHP">
         <h4>RawPHP Framework</h4>
     </div>
-
     <div class="col-md-6 col-lg-6 pull-right">
-
         <h4>
             <span class="fui-user"></span>
             Sign up</h4>
-
         <div class="login-form">
             <form action="{{ path_for('auth.signup') }}" method="post" autocomplete="off">
                 <div class="form-group {{ errors.first_name ? 'has-error' : '' }}">
@@ -39,7 +31,6 @@
                         <span class="help-block">{{ errors.first_name | first }}</span>
                     {% endif %}
                 </div>
-
                 <div class="form-group {{ errors.last_name ? 'has-error' : '' }}">
                     <input type="text" class="form-control login-field" value="{{ old.last_name }}" name="last_name" placeholder="Enter your last name" id="login-last-name">
                     <label class="login-field-icon fui-user" for="login-last-name"></label>
@@ -48,16 +39,13 @@
                         <span class="help-block">{{ errors.last_name | first }}</span>
                     {% endif %}
                 </div>
-
                 <div class="form-group {{ errors.email ? 'has-error' : '' }}">
                     <input type="email" class="form-control login-field" value="{{ old.email }}" name="email" placeholder="Enter your email" id="login-email">
                     <label class="login-field-icon fui-user" for="login-email"></label>
-
                     {% if errors.email %}
                         <span class="help-block">{{ errors.email | first }}</span>
                     {% endif %}
                 </div>
-
                 <div class="form-group">
                     <input class="form-control login-field" id="login-pass" name="password" placeholder="Password" type="password" value="">
                     <label class="login-field-icon fui-lock" for="login-pass"></label>
@@ -65,7 +53,6 @@
                         <span class="help-block">{{ errors.password | first }}</span>
                     {% endif %}
                 </div>
-
                 <div class="form-group">
                     <input class="form-control login-field" id="login-skills" name="skills" placeholder="List your skills - e.g. PHP, Laravel" type="text" value="">
                     <label class="login-field-icon fui-lock" for="login-pass"></label>
@@ -73,9 +60,7 @@
                         <span class="help-block">{{ errors.skills | first }}</span>
                     {% endif %}
                 </div>
-
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Sign up</button>
-
                 {{ csrf.field | raw }}
                 <a class="login-link" href="{{ path_for('auth.signin')}}">Login</a>
                 <a class="login-link" href="{{ path_for('auth.password.forgot')}}">Lost your password?</a>

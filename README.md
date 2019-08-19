@@ -25,7 +25,7 @@ MySQL<br>
 
 ```
 DB_HOST = "your host"
-DB_NAME = "your database name"
+DB_NAME = job-recruitment
 DB_USER = "your database user"
 DB_PASSWORD = "your database password"
 DB_PORT = "your database port"

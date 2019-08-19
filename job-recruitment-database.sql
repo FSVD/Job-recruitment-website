@@ -16,9 +16,16 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `raw-php`
---
+-- -----------------------------------------------------
+-- Schema inventory
+-- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `job-recruitment` ;
+
+-- -----------------------------------------------------
+-- Schema inventory
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `job-recruitment` DEFAULT CHARACTER SET utf8 ;
+USE `job-recruitment` ;
 
 -- --------------------------------------------------------
 
@@ -26,8 +33,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `posts`
 --
 
-DROP TABLE IF EXISTS `posts`;
-CREATE TABLE IF NOT EXISTS `posts` (
+DROP TABLE IF EXISTS `job-recruitment`.`posts`;
+CREATE TABLE IF NOT EXISTS `job-recruitment`.`posts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT null,
   `body` text NOT NULL,
@@ -51,8 +58,8 @@ INSERT INTO `posts` (`id`, `title`, `body`, `user_id`, `created_at`, `updated_at
 -- Table structure for table `roles`
 --
 
-DROP TABLE IF EXISTS `roles`;
-CREATE TABLE IF NOT EXISTS `roles` (
+DROP TABLE IF EXISTS `job-recruitment`.`roles`;
+CREATE TABLE IF NOT EXISTS `job-recruitment`.`roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
   `description` text,
@@ -74,8 +81,8 @@ INSERT INTO `roles` (`id`, `name`, `description`) VALUES
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
+DROP TABLE IF EXISTS `job-recruitment`.`users`;
+CREATE TABLE IF NOT EXISTS `job-recruitment`.`users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `role_id` int(11) DEFAULT '3',
   `country_id` int(11) DEFAULT NULL,
@@ -104,8 +111,8 @@ INSERT INTO `users` (`id`, `role_id`, `country_id`, `province_id`, `first_name`,
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
-DROP TABLE IF EXISTS `countries`;
-CREATE TABLE IF NOT EXISTS `countries` (
+DROP TABLE IF EXISTS `job-recruitment`.`countries`;
+CREATE TABLE IF NOT EXISTS `job-recruitment`.`countries` (
 `id` int(11) NOT NULL auto_increment,
 `code` varchar(2) NOT NULL default '',
 `name` varchar(100) NOT NULL default '',
@@ -361,8 +368,8 @@ INSERT INTO `countries` VALUES (null, 'YE', 'Yemen');
 INSERT INTO `countries` VALUES (null, 'ZM', 'Zambia');
 INSERT INTO `countries` VALUES (null, 'ZW', 'Zimbabwe');
 
-DROP TABLE IF EXISTS `provinces`;
-CREATE TABLE IF NOT EXISTS `provinces` (
+DROP TABLE IF EXISTS `job-recruitment`.`provinces`;
+CREATE TABLE IF NOT EXISTS `job-recruitment`.`provinces` (
   id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   country_id INT(11) NOT NULL,
   code VARCHAR(6) NOT NULL,
@@ -424,3 +431,15 @@ INSERT INTO provinces (id, country_id, code, name) VALUES (null, 204, 'ES-V', 'V
 INSERT INTO provinces (id, country_id, code, name) VALUES (null, 204, 'ES-VA', 'Valladolid');
 INSERT INTO provinces (id, country_id, code, name) VALUES (null, 204, 'ES-ZA', 'Zamora');
 INSERT INTO provinces (id, country_id, code, name) VALUES (null, 204, 'ES-Z', 'Zaragoza');
+--
+-- Table structure for table `skills`
+--
+DROP TABLE IF EXISTS `job-recruitment`.`skills`;
+CREATE TABLE `job-recruitment`.`skills` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL,
+    `id_user` INT(11) NOT NULL,
+    `created_at` DATETIME NOT NULL,
+    `updated_at` DATETIME NOT NULL,
+    PRIMARY KEY (`id`)
+)  ENGINE=MYISAM;
