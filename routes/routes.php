@@ -81,4 +81,11 @@ $app->group('', function () use ($app) {
     $app->map(['POST', 'GET'], '/provinces/edit/{id}', 'ProvincesController:edit')->setName('provinces.edit');
     $app->get('/provinces/view/{id}', 'ProvincesController:view')->setName('provinces.view');
     $app->get('/provinces/delete/{id}', 'ProvincesController:delete')->setName('provinces.delete');
+
+    //skills routes
+    $app->get('/skills/index/{id}', 'SkillsController:index')->setName('skills.index'); //Optional user_id parameter
+    $app->map(['POST', 'GET'], '/skills/add/', 'SkillsController:add')->setName('skills.add');
+    $app->map(['POST', 'GET'], '/skills/edit/{id}', 'SkillsController:edit')->setName('skills.edit');
+    $app->get('/skills/view/{id}', 'SkillsController:view')->setName('skills.view');
+    $app->get('/skills/delete/{id}', 'SkillsController:delete')->setName('skills.delete');
 })->add(new AuthMiddleware($container));
