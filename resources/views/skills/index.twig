@@ -1,0 +1,45 @@
+{% extends 'templates/app.twig' %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-10">
+            <div id="skilllist">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="text-center">
+                            {% if user %}
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <h3 class="pull-left">
+                                            {{ user.first_name }}
+                                            {{ user.last_name }}'s Skills
+                                        </h3>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="container">
+                            <ul>
+                                {% for skill in skills %}
+                                    <li>
+                                        <a href="{{ path_for('skills.view', {'id': skill.id }) }}">{{ skill.name }}</a>
+                                        <p>
+                                            {{ skill.description| slice(0, 150 ) ~ 'Skill description not available' }}
+                                        </p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <hr>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="{{ path_for('skills.add') }}" class="btn btn-primary">New Skill</a>
+        </div>
+    </div>
+</div></div>{% endblock %}
