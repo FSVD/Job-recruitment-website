@@ -440,7 +440,7 @@ CREATE TABLE `job-recruitment`.`skills` (
     `name` VARCHAR(255) NOT NULL,
     `url` VARCHAR(255) NULL,
     `description` TEXT,
-    `id_user` INT(11) NOT NULL,
+    `user_id` INT(11) NOT NULL,
     `created_at` DATETIME NOT NULL,
     `updated_at` DATETIME NOT NULL,
     PRIMARY KEY (`id`)
