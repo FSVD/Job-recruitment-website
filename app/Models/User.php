@@ -56,4 +56,10 @@ class User extends Model
     {
         return $this->belongsTo('App\Models\Province');
     }
+
+    //every user has many skills
+    public function skills()
+    {
+        return $this->hasMany('App\Models\Skill');
+    }
 }
