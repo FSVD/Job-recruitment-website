@@ -27,18 +27,18 @@ class Skill extends Model
     protected $fillable = [
         'id',
         'name',
-        'url',
         'description',
-        'user_id'
+        'url'
     ];
 
     /**
-    * Every skill belongs to a user.
+    * Every skill belongs to many users.
     * That is,  skills table has a user_id column which refers to the id of the user
     * So let's define the relationship below
     */
-    public function user()
+    //every user has many skills
+    public function users()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsToMany('App\Models\User')->withPivot('description', 'url')->withTimestamps();
     }
 }

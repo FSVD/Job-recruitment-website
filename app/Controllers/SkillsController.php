@@ -4,8 +4,8 @@ namespace App\Controllers;
 
 use App\Controllers\Controller;
 use App\Models\User;
-use Respect\Validation\Validator as v;
 use App\Models\Skill;
+use Respect\Validation\Validator as v;
 
 class SkillsController extends Controller
 {
@@ -20,10 +20,9 @@ class SkillsController extends Controller
 
         //find all skills by the user with this ID
         if (isset($args['id'])) {
-            $skills = Skill::where('user_id', $args['id'])->get();
             //get the user's details
             $user = User::find($args['id']);
-
+            $skills = $user->skills();
             return $this->view->render($response, 'skills/index.twig', ['skills'=>$skills, 'user'=>$user]);
         } else {
             $skills = Skill::all();
@@ -62,8 +61,7 @@ class SkillsController extends Controller
             *
             */
             $validation = $this->validator->validate($request, [
-                'title' => v::notEmpty(),
-                'body' => v::notEmpty(),
+                'name' => v::notEmpty(),
             ]);
 
 
@@ -75,9 +73,9 @@ class SkillsController extends Controller
             }
         
             $skill = Skill::create([
-                'title' => $request->getParam('title'),
-                'body' => $request->getParam('body'),
-                'user_id' => $this->auth->user()->id,
+                'name' => $request->getParam('name'),
+                'description' => $request->getParam('description'),
+                'url' => $request->getParam('url')
             ]);
 
             $this->flash->addMessage('success', 'Skill Added Successfully');

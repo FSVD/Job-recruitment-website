@@ -5,6 +5,7 @@ namespace App\Controllers\Auth;
 use App\Controllers\Controller;
 use App\Models\User;
 use App\Models\Skill;
+use App\Models\SkillUser;
 use Respect\Validation\Validator as v;
 
 class AuthController extends Controller
@@ -95,7 +96,7 @@ class AuthController extends Controller
         }
         
         
-        $user = User::create([
+        $user = User::firstOrCreate([
             'first_name' => $request->getParam('first_name'),
             'last_name' => $request->getParam('last_name'),
             'email' => $request->getParam('email'),
@@ -104,15 +105,18 @@ class AuthController extends Controller
         ]);
         
         // get each skill from skills textfield and save them in the database
-        $skills = str_replace(' ', '', $request->getParam('skills'));
-        $skillList = explode(',', $skills);
+        // $skills = str_replace(' ', '', $request->getParam('skills'));
+        $skillList = explode(',', $request->getParam('skills'));
 
         foreach ($skillList as $skill) {
             // save in the skills table
-            Skill::create([
-                                'name' => $skill,
-                                'user_id' => $user->id
+            $getSkill = Skill::firstOrCreate([
+                                'name' => trim($skill)
                                 ]);
+            SkillUser::create([
+                'user_id' => $user->id,
+                'skill_id' => $getSkill->id
+            ]);
         }
 
         $this->flash->addMessage('success', 'Signup successful'); //You can also use error, info, warning
