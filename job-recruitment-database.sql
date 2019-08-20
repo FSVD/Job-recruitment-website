@@ -447,11 +447,23 @@ CREATE TABLE `job-recruitment`.`skills` (
 
 DROP TABLE IF EXISTS `job-recruitment`.`skill_user`;
 CREATE TABLE `job-recruitment`.`skill_user` (
-  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
-  `user_id` INT NOT NULL COMMENT '',
-  `skill_id` INT NOT NULL COMMENT '',
-  `description` TEXT NULL COMMENT '',
-  `url` VARCHAR(255) NULL COMMENT '',
-  `created_at` DATETIME NOT NULL COMMENT '',
-  `updated_at` DATETIME NOT NULL COMMENT '',
-  PRIMARY KEY (`id`)  COMMENT '');
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `skill_id` INT NOT NULL,
+  `description` TEXT NULL,
+  `url` VARCHAR(255) NULL,
+  `created_at` DATETIME NOT NULL,
+  `updated_at` DATETIME NOT NULL,
+  PRIMARY KEY (`id`)
+  )  ENGINE=MYISAM;;
+
+DROP TABLE IF EXISTS `job-recruitment`.`searches`;
+CREATE TABLE `job-recruitment`.`searches`(
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255) NOT NULL,
+  `user_id` INT(11) NOT NULL,
+  `user_ip` INT(11) NULL,
+  `created_at` DATETIME NOT NULL,
+  `updated_at` DATETIME NOT NULL,
+  PRIMARY KEY (`id`)
+  ) ENGINE = MyISAM;
