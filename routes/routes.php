@@ -83,7 +83,7 @@ $app->group('', function () use ($app) {
     $app->get('/provinces/delete/{id}', 'ProvincesController:delete')->setName('provinces.delete');
 
     //skills routes
-    $app->get('/skills/index/{id}', 'SkillsController:index')->setName('skills.index'); //Optional user_id parameter
+    $app->get('/skills/index[/{id}]', 'SkillsController:index')->setName('skills.index'); //Optional user_id parameter
     $app->map(['POST', 'GET'], '/skills/add/', 'SkillsController:add')->setName('skills.add');
     $app->map(['POST', 'GET'], '/skills/edit/{id}', 'SkillsController:edit')->setName('skills.edit');
     $app->get('/skills/view/{id}', 'SkillsController:view')->setName('skills.view');

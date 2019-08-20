@@ -23,18 +23,25 @@
                     <div class="panel-body">
                         <div class="login-form">
                             <form action="{{ path_for('skills.add') }}" method="post" autocomplete="off">
-                                <div class="form-group {{ errors.title ? 'has-error' : '' }}">
-                                    <input class="form-control login-field" name="title" placeholder="Enter skill name" type="text">
-                                    <label class="login-field-icon fui-user" for="login-first-name"></label>
-                                    {% if errors.title %}
-                                        <span class="help-block">{{ errors.title | first }}</span>
+                                <div class="form-group {{ errors.name ? 'has-error' : '' }}">
+                                    <input class="form-control login-field" name="name" placeholder="Enter skill name" type="text">
+                                    <label class="login-field-icon fui-user" for="login-name"></label>
+                                    {% if errors.name %}
+                                        <span class="help-block">{{ errors.name | first }}</span>
                                     {% endif %}
                                 </div>
-                                <div class="form-group {{ errors.body ? 'has-error' : '' }}">
-                                    <textarea class="form-control login-field" name="body" placeholder="Enter skill description" rows="3"></textarea>
-                                    <label class="login-field-icon fui-user" for="login-last-name"></label>
-                                    {% if errors.body %}
-                                        <span class="help-block">{{ errors.body | first }}</span>
+                                <div class="form-group {{ errors.description ? 'has-error' : '' }}">
+                                    <textarea class="form-control login-field" name="description" placeholder="Enter skill description" rows="3"></textarea>
+                                    <label class="login-field-icon fui-user" for="login-description"></label>
+                                    {% if errors.description %}
+                                        <span class="help-block">{{ errors.description | first }}</span>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group {{ errors.url ? 'has-error' : '' }}">
+                                    <input class="form-control login-field" name="url" placeholder="Enter project url" type="text">
+                                    <label class="login-field-icon fui-user" for="login-url"></label>
+                                    {% if errors.url %}
+                                        <span class="help-block">{{ errors.url | first }}</span>
                                     {% endif %}
                                 </div>
                                 <button class="btn btn-primary btn-lg" type="submit">Submit</button>

@@ -38,8 +38,10 @@
                 <div class="panel-footer"></div>
             </div>
         </div>
-        <div class="text-center">
-            <a href="{{ path_for('skills.add') }}" class="btn btn-primary">New Skill</a>
-        </div>
+        {% if (auth.user.role_id and auth.user.role_id <= 3) %}
+            <div class="text-center">
+                <a href="{{ path_for('skills.add') }}" class="btn btn-primary">New Skill</a>
+            </div>
+        {% endif %}
     </div>
 </div></div>{% endblock %}

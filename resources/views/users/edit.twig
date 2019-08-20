@@ -23,7 +23,7 @@
             <span class="fui-user"></span>
             Edit Profile</h4>
         <div class="login-form">
-            <form action="{{ path_for('auth.signup') }}" method="post" autocomplete="off">
+            <form action="{{ path_for('users.edit', {'id': user.id}) }}" method="post" autocomplete="off">
                 <div class="form-group {{ errors.first_name ? 'has-error' : '' }}">
                     <input type="text" class="form-control login-field" value="{{ user.first_name }}" name="first_name" placeholder="Enter your first name" id="login-first-name">
                     <label class="login-field-icon fui-user" for="login-first-name"></label>

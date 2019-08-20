@@ -8,13 +8,7 @@
                         <div class="text-center">
                             <div class="row">
                                 <div class="col-sm-9">
-                                    <h3 class="pull-left">{{ skill.title }}
-                                        <small class="pull-left ">
-                                            <a class="btn" href="{{ path_for('users.view', {'id': skill.user.id }) }}">
-                                                {{  skill.user.first_name }}
-                                                {{  skill.user.last_name }}
-                                            </a>
-                                        </small>
+                                    <h3 class="pull-left">{{ skill.name }}
                                     </h3>
                                 </div>
                                 <div class="col-sm-3">
@@ -28,27 +22,43 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        {{ skill.body }}
+                        {{ skill.description }}
+                        <hr>
+                        {% if ( skill.url ) %}
+                            <a href="{{ skill.url }}">View official website</a>
+                        {% endif %}
                     </div>
-                    <!-- <div class="panel-footer">
-                    <span class="label label-default">Welcome</span> <span class="label label-default">Updates</span> <span class="label label-default">July</span>
-                    </div> -->
-                </div>
+                    <h3>List of users with this skill</h3>
+                    {% for user in skill.users %}
+                        <div class="media">
+                            <div class="media-body">
+                                <a href="{{ path_for('users.view', {'id': user.id } ) }}">
+                                    <p class="media-heading">
+                                        {{ user.first_name}}{{ user.last_name}}
+                                    </p>
+                                </h4>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <!-- <div class="panel-footer">
+                <span class="label label-default">Welcome</span> <span class="label label-default">Updates</span> <span class="label label-default">July</span>
+                </div> -->
             </div>
         </div>
-        <!-- Only the owner of this skill and the admin can edit and delete it -->
-        {% if (skill.user_id == auth.user.id) or (auth.user.role_id <= 3) %}
-            <div class="text-center">
-                <p>
-                    <a href="{{ path_for('skills.edit', {'id': skill.id } ) }}" class="btn btn-primary">Edit skill</a>
-                </p>
-                <p>
-                    <a onclick="return confirm('Are you sure you wish to delete this Book?');" href="{{ path_for('skills.delete', {'id': skill.id } ) }}" class="btn btn-warning">Delete skill</a>
-                </p>
-            </div>
-        {% endif %}
     </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-3"></div>
-    <div class="col-md-1"></div>
-</div>{% endblock %}
+    <!-- Only the owner of this skill and the admin can edit and delete it -->
+    {% if (skill.user_id == auth.user.id) or (auth.user.role_id <= 3) %}
+        <div class="text-center">
+            <p>
+                <a href="{{ path_for('skills.edit', {'id': skill.id } ) }}" class="btn btn-primary">Edit skill</a>
+            </p>
+            <p>
+                <a onclick="return confirm('Are you sure you wish to delete this Book?');" href="{{ path_for('skills.delete', {'id': skill.id } ) }}" class="btn btn-warning">Delete skill</a>
+            </p>
+        </div>
+    {% endif %}
+</div>
+<div class="col-md-1"></div>
+<div class="col-md-3"></div>
+<div class="col-md-1"></div></div>{% endblock %}
