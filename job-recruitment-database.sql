@@ -49,8 +49,8 @@ CREATE TABLE IF NOT EXISTS `job-recruitment`.`posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `body`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'Forever young by Jayz and Hudson.', '  This is the content of the post of forever young by Jayz and Hudson. This is the content of the post of forever young by Jayz and Hudson. This is the content of the post of forever young by Jayz and Hudson. This is the content of the post of forever young by Jayz and Hudson. This is the content of the post of forever young by Jayz and Hudson.', 7, '2017-07-21 13:44:49', '2017-07-21 13:44:49'),
-(2, 'Mysterious Ways - Song by Punjah Kort', ' This is the description of the song by Punjah Kort, it is soul relieving and self satisfying.', 7, '2017-07-21 17:32:22', '2017-07-21 17:32:22');
+(1, 'How to build a GraphQL Server using Laravel.', 'In the first part of this series, we looked at what GraphQL is, it’s advantages and even compared it with REST and SOAP. In this part of the series, we would se...', 7, '2017-07-21 13:44:49', '2017-07-21 13:44:49'),
+(2, 'Eloquent: Recursive hasMany Relationship', 'Quite often in e-shops you can see many level of categories and subcategories, sometimes even unlimited. This article will show you how to achieve it elegantly...', 7, '2017-07-21 17:32:22', '2017-07-21 17:32:22');
 
 -- --------------------------------------------------------
 
