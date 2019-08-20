@@ -88,4 +88,12 @@ $app->group('', function () use ($app) {
     $app->map(['POST', 'GET'], '/skills/edit/{id}', 'SkillsController:edit')->setName('skills.edit');
     $app->get('/skills/view/{id}', 'SkillsController:view')->setName('skills.view');
     $app->get('/skills/delete/{id}', 'SkillsController:delete')->setName('skills.delete');
+
+    //searches routes
+    $app->get('/searches/index', 'SearchesController:index')->setName('searches.index'); //Optional user_id parameter
+    $app->get('/searches/view/{id}', 'SearchesController:view')->setName('searches.view');
 })->add(new AuthMiddleware($container));
+
+ 
+//searches routes
+$app->map(['POST', 'GET'], '/searches/add/', 'SearchesController:add')->setName('searches.add');

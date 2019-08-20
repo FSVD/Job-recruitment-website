@@ -25,7 +25,7 @@
                                     <li>
                                         <a href="{{ path_for('skills.view', {'id': skill.id }) }}">{{ skill.name }}</a>
                                         <p>
-                                            {{ skill.description| slice(0, 150 ) ~ 'Skill description not available' }}
+                                            {{ skill.description| slice(0, 150 ) ~ '...' }}
                                         </p>
                                     </li>
                                 {% endfor %}

@@ -60,6 +60,10 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{ path_for('searches.index') }}">All Search terms
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ path_for('countries.index') }}">All Countries
                                 </a>
                             </li>
@@ -88,10 +92,10 @@
                     About Us</a>
             </li>
         </ul>
-        <form action="#" class="navbar-form navbar-right" role="search">
+        <form action="{{ path_for('searches.add') }}" method="post" class="navbar-form navbar-right" role="search">
             <div class="form-group">
                 <div class="input-group">
-                    <input class="form-control" id="navbarInput-01" placeholder="Search" type="search">
+                    <input class="form-control" id="navbarInput-01" name="searchterm" placeholder="Search" type="search">
                     <span class="input-group-btn">
                         <button class="btn" type="submit">
                             <span class="fui-search"></span>
@@ -99,6 +103,7 @@
                     </span>
                 </div>
             </div>
+            {{ csrf.field | raw }}
         </form>
     </div>
     <!-- /.navbar-collapse -->
