@@ -57,9 +57,9 @@ class User extends Model
         return $this->belongsTo('App\Models\Province');
     }
 
-    //every user has many skills
+    //every user belongs to many skills
     public function skills()
     {
-        return $this->hasMany('App\Models\Skill');
+        return $this->belongsToMany('App\Models\Skill')->withPivot('description', 'url')->withTimestamps();
     }
 }
