@@ -40,5 +40,6 @@ class Skill extends Model
     public function users()
     {
         return $this->belongsToMany('App\Models\User')->withPivot('description', 'url')->withTimestamps();
+        // return $this->belongsToMany('App\Models\User');
     }
 }
