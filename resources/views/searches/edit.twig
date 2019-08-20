@@ -1,0 +1,48 @@
+{% extends 'templates/app.twig' %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-10">
+            <div id="searchlist">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="text-center">
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <h3 class="pull-left">{{ search.title }}</h3>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h4 class="pull-right">
+                                        <small>
+                                            {{ search.created_at }}
+                                        </small>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="login-form">
+                            <form action="#" autocomplete="off" method="post">
+                                <div class="form-group {{ errors.title ? 'has-error' : '' }}">
+                                    <input type="text" class="form-control login-field" value="{{ search.title }}" name="title" placeholder="Enter your title">
+                                    <label class="login-field-icon fui-user" for="login-first-name"></label>
+                                    {% if errors.title %}
+                                        <span class="help-block">{{ errors.title | first }}</span>
+                                    {% endif %}
+                                </div>
+                                <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+                                {{ csrf.field | raw }}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="{{ path_for('searches.add') }}" class="btn btn-primary">New Book</a>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-1"></div>
+</div>{% endblock %}
