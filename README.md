@@ -1,6 +1,6 @@
 # Job Recruitment website
 
-Online jobs recruitment platform.<br>
+Online job recruitment platform.<br>
 
 ## Key features:
 
